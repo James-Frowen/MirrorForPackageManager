@@ -5,9 +5,7 @@ on:
 
 jobs:
   Publish:
-    permissions:
-      contents: write
-      actions: write
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       # - name: Install packages
