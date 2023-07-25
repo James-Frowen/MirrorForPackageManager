@@ -1,0 +1,57 @@
+name: Create Package
+
+on:
+  - workflow_dispatch
+
+jobs:
+  Publish:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Install packages
+      #   # need upgrade git for git-lfs
+      #   run: |
+      #     apt-get update
+      #     apt-get install -y software-properties-common
+      #     add-apt-repository -y ppa:git-core/ppa
+      #     apt-get update
+      #     apt-get install -y zip unzip git
+
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Prepare git
+        run: |
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'GitHub Action'
+          git config --global --add safe.directory /__w/Mirror/Mirror
+
+      - name: Create Package
+        run: sh ./PrepareForPackageManager.sh
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic
+        with:
+          extra_plugins: |
+            @semantic-release/exec
+            @semantic-release/changelog
+            @semantic-release/git
+          branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # upload next version so that sonar job can use it
+      - run: echo ${{ steps.semantic.outputs.new_release_version }} > SemanticVersion.txt
+      - name: Archive Version
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: SemanticVersion
+          path: SemanticVersion.txt
