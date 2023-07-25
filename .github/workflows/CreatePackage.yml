@@ -29,7 +29,9 @@ jobs:
 
       - name: Create Package
         run: sh ./PrepareForPackageManager.sh
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
