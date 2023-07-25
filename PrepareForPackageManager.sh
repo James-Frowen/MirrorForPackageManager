@@ -2,15 +2,21 @@
 
 # reset to upstream to get all commits
 git remote add upstream https://github.com/MirrorNetworking/Mirror.git
-git reset --hard upstream/master
+git fetch --all
 # reset files back to origin
-git checkout origin/workflow -- 
+git checkout master
+git reset --hard upstream/master
+rm -r .github
+git checkout origin/workflow -- .
 
-git commit -m "Adding package workflow"
+git commit -m "CI: adding package workflow"
 
 # move files and create package.json
 mv Assets/Mirror/Tests Assets/Tests
 mv Assets/Mirror/Examples Assets/Mirror/Samples~
+
+git add .
+git commit -m "CI: moving tests and samples"
 
 sample_array=''
 
@@ -49,5 +55,5 @@ echo '{
 
 
 git add .
-git commit -m "adding package.json"
+git commit -m "CI: adding package.json"
 git push -f 
