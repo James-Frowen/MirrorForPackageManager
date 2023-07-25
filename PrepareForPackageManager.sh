@@ -56,6 +56,6 @@ echo '{
 
 git add .
 git commit -m "CI: adding package.json"
-git push -f 
 # push all tags, this needs to be done here because it causes the release step to fail
-git push -f --tags HEAD:master
+git push -f 
+git push -f --tags
