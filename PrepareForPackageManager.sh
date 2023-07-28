@@ -6,8 +6,10 @@ git fetch --all
 # reset files back to origin
 git checkout master
 git reset --hard upstream/master
-rm -r .github
 git checkout origin/workflow -- .
+# remove workflow stuff, or it will break CI
+# we dont need CI on master, we can just run from side branch
+rm -r .github
 
 git commit -m "CI: adding package workflow"
 
