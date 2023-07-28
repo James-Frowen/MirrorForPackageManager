@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Set up git to use the GITHUB_TOKEN for authentication
-git config --global credential.helper store
-echo "https://${GITHUB_TOKEN}:x-oauth-basic@github.com" > ~/.git-credentials
-
-
 # reset to upstream to get all commits
 git remote add upstream https://github.com/MirrorNetworking/Mirror.git
 git fetch --all
