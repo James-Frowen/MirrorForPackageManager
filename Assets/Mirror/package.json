@@ -1,0 +1,16 @@
+{
+    "name": "com.mirrornetworking.mirror",
+    "displayName": "mirror",
+    "version": "v81.2.2",
+    "unity": "2020.3",
+    "description": "Mirror is a high level Networking API for Unity, supporting different low level Transports.",
+    "author": "Mirror",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/James-Frowen/Mirror.git"
+    },
+    "dependencies": {},
+    "samples": [
+        {"displayName": "Samples~/AdditiveLevels", "description": "", "path": "Samples~/AdditiveLevels"},{"displayName": "Samples~/AdditiveScenes", "description": "", "path": "Samples~/AdditiveScenes"},{"displayName": "Samples~/Basic", "description": "", "path": "Samples~/Basic"},{"displayName": "Samples~/Benchmark", "description": "", "path": "Samples~/Benchmark"},{"displayName": "Samples~/CCU", "description": "", "path": "Samples~/CCU"},{"displayName": "Samples~/Chat", "description": "", "path": "Samples~/Chat"},{"displayName": "Samples~/Common", "description": "", "path": "Samples~/Common"},{"displayName": "Samples~/Discovery", "description": "", "path": "Samples~/Discovery"},{"displayName": "Samples~/Examples", "description": "", "path": "Samples~/Examples"},{"displayName": "Samples~/LagCompensation", "description": "", "path": "Samples~/LagCompensation"},{"displayName": "Samples~/MultipleAdditiveScenes", "description": "", "path": "Samples~/MultipleAdditiveScenes"},{"displayName": "Samples~/MultipleMatches", "description": "", "path": "Samples~/MultipleMatches"},{"displayName": "Samples~/Pong", "description": "", "path": "Samples~/Pong"},{"displayName": "Samples~/RigidbodyBenchmark", "description": "", "path": "Samples~/RigidbodyBenchmark"},{"displayName": "Samples~/RigidbodyPhysics", "description": "", "path": "Samples~/RigidbodyPhysics"},{"displayName": "Samples~/Room", "description": "", "path": "Samples~/Room"},{"displayName": "Samples~/Snapshot", "description": "", "path": "Samples~/Snapshot"},{"displayName": "Interpolation", "description": "", "path": "Interpolation"},{"displayName": "Samples~/SyncDirection", "description": "", "path": "Samples~/SyncDirection"},{"displayName": "Samples~/Tanks", "description": "", "path": "Samples~/Tanks"},{"displayName": "Samples~/VR", "description": "", "path": "Samples~/VR"}
+    ]
+}

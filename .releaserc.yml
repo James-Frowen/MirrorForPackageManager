@@ -1,33 +1,13 @@
-{
-    verifyConditions: ["@semantic-release/github"],
-    prepare: [
-        {
-            "path": "@semantic-release/exec",
-            "prepareCmd": "echo ${nextRelease.version} > Assets/Mirror/version.txt"
-        }
-    ],
-    publish: [        
-        {
-            "path": "@semantic-release/github",
-            "assets": [
-                {"path": "Mirror.unitypackage", "label": "Mirror Unity Package", "name": "Mirror-${nextRelease.version}.unitypackage"}
-            ]
-        }
-    ],
-    "plugins": [
-        ["@semantic-release/commit-analyzer", {
-            "preset": "angular",
-            "releaseRules": [
-                {"type": "breaking", "release": "major"},
-                {"type": "feature", "release": "minor"},
-            ]
-        }],
-        ['@semantic-release/release-notes-generator', {
-          "preset": "angular",
-            "releaseRules": [
-                {"type": "breaking", "release": "major"},
-                {"type": "feature", "release": "minor"},
-            ]
-        }],
-    ]
-}
+plugins:
+  - '@semantic-release/github'
+  - '@semantic-release/release-notes-generator'
+  - '@semantic-release/commit-analyzer'
+  - - '@semantic-release/changelog'
+    - changelogFile: 'Assets/Mirror/CHANGELOG.md'
+  - - '@semantic-release/npm'
+    - npmPublish: false
+      pkgRoot: "Assets/Mirror"
+  - - '@semantic-release/git'
+    - assets:
+        - 'Assets/Mirror/package.json'
+        - 'Assets/Mirror/CHANGELOG.md'
