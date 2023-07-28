@@ -3,7 +3,7 @@
 # reset to upstream to get all commits
 git remote add upstream https://github.com/MirrorNetworking/Mirror.git
 git fetch --all
-git fetch --all --tags
+git fetch --all --tags --force
 # reset files back to origin
 git checkout master
 git reset --hard upstream/master
