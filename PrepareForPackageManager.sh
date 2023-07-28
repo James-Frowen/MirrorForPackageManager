@@ -6,14 +6,11 @@ git fetch --all
 # reset files back to origin
 git checkout master
 git reset --hard upstream/master
-# remove .github folder from all commits
-git filter-branch --tree-filter 'rm -rf .github' HEAD
+# remove mirror's workflow
+rm -r .github
 
 # get workflow files, these include release config and meta files for Mirror folder
 git checkout origin/workflow -- .
-# remove workflow stuff, or it will break CI
-# we dont need CI on master, we can just run from side branch
-rm -r .github
 
 git commit -m "CI: adding package workflow"
 
