@@ -16,6 +16,8 @@ git checkout origin/workflow -- .
 git commit -m "CI: adding package workflow"
 
 # move files and create package.json
+rm -r Assets/Tests
+rm -r Assets/Mirror/Samples~
 mv Assets/Mirror/Tests Assets/Tests
 mv Assets/Mirror/Examples Assets/Mirror/Samples~
 
@@ -63,7 +65,7 @@ git add .
 git commit -m "CI: adding package.json"
 
 git push --delete origin $latest_tag
-git push --delete $latest_tag
+git tag -d $latest_tag
 git tag $latest_tag
 
 # push all tags, this needs to be done here because it causes the release step to fail
