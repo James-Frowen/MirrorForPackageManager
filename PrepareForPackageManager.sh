@@ -3,6 +3,7 @@
 # reset to upstream to get all commits
 git remote add upstream https://github.com/MirrorNetworking/Mirror.git
 git fetch --all
+git fetch --all --tags
 # reset files back to origin
 git checkout master
 git reset --hard upstream/master
@@ -62,6 +63,7 @@ git add .
 git commit -m "CI: adding package.json"
 
 git push --delete origin $latest_tag
+git push --delete $latest_tag
 git tag $latest_tag
 
 # push all tags, this needs to be done here because it causes the release step to fail
