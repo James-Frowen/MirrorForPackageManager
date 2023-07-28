@@ -43,11 +43,12 @@ done
 sample_array="${sample_array%,}"
 
 # Close the JSON array
+latest_tag=$(git describe --tags --abbrev=0 upstream/master)
 
 echo '{
     "name": "com.mirrornetworking.mirror",
     "displayName": "mirror",
-    "version": "81.2.1",
+    "version": "'$latest_tag'",
     "unity": "2020.3",
     "description": "Mirror is a high level Networking API for Unity, supporting different low level Transports.",
     "author": "Mirror",
@@ -64,6 +65,10 @@ echo '{
 
 git add .
 git commit -m "CI: adding package.json"
+
+git push --delete origin $latest_tag
+git tag $latest_tag
+
 # push all tags, this needs to be done here because it causes the release step to fail
 git push -f 
 git push -f --tags
