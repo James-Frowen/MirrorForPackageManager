@@ -36,6 +36,7 @@ jobs:
 
       - name: Create Package
         run: sh ./PrepareForPackageManager.sh
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           
